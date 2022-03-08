@@ -1,0 +1,50 @@
+@mixin customButtton($bgcolor) {
+    background-color: $bgcolor;
+    color: #fff;
+    padding: 6px 20px;
+    min-width:120px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+#navbar{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    box-shadow: 0 5px 3px -2px rgb(175, 165, 165);
+
+    .nav-container{
+        width: 90%;
+        margin: auto;
+        padding: 15px;
+        display:flex;
+        align-items: center;
+        .left-navbar{
+            flex: 0.5;
+            letter-spacing: 0.9px;
+            font-size: 1.5em;
+            font-weight: 800;
+
+            span{
+                color: #ff0000;
+            }
+        }
+        .right-navbar{
+            flex: 0.5;
+            text-align: right;
+
+            .free-trial{
+                @include customButtton(rgb(3, 3, 75))
+            }
+            .login{
+                @include customButtton(rgb(201, 94, 23))
+            }
+
+
+        }
+    }
+}
