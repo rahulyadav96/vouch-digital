@@ -27,7 +27,7 @@ export const Login = () =>{
             alert("login Success")
         })
         .catch(err=>{
-            alert(err.response.data)
+            alert(err.response.data.error)
             console.error(err.response.data)
         })
     
