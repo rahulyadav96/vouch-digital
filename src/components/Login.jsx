@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import "./login.scss";
-
+import axios from "axios";
 export const Login = () =>{
     const {token, handleLogin} = useContext(AuthContext);
 
@@ -14,12 +14,22 @@ export const Login = () =>{
 
     const handleChange = (e)=>{
         const {name,value} = e.target;
+        
         setLoginData({...loginData,[name]:value});
     }
 
     const handleSubmit = (e)=>{
         e.preventDefault();
 
+        axios.post('https://reqres.in/api/login',loginData)
+        .then(res=>{
+            handleLogin(res.data.token)
+            alert("login Success")
+        })
+        .catch(err=>{
+            alert(err.response.data)
+            console.error(err.response.data)
+        })
     
 
     }
